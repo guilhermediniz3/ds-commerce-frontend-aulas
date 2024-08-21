@@ -1,26 +1,15 @@
-import './App.css'
+import ProductDetails from "./routes/ProductDetails";
 
-import ButtonInverse from './components/ButtonInverse';
-import ButtonPrimary from './components/ButtonPrimary'
-import HeaderCliente from './components/HeaderClient'
-import ProductDetailsCard from './components/ProductDetailsCard';
 
-function App() {
+
+
+
+
+export default function App() {
   return (
-    <>
-      <HeaderCliente />
-      <main>
-        <section id="product-details-section" className="dsc-container">
-        <ProductDetailsCard/>
- 
-          <div className="dsc-btn-page-container">
-           <ButtonPrimary />
-           <ButtonInverse/>
-          </div>
-        </section>
-      </main>
-    </>
+    <ProductDetails />
+
   );
 }
 
-export default App
+

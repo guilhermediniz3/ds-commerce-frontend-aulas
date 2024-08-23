@@ -1,5 +1,6 @@
 
-import Catalog from "./routes/Catalog";
+
+import { Link } from "react-router-dom";
 
 
 
@@ -7,13 +8,19 @@ import Catalog from "./routes/Catalog";
 
 
 
-
-export default function App() {
+ function App() {
   return (
-    <Catalog />
+  <nav
+    style={{
+      borderBottom:"solid 1px",
+      paddingBottom: "1rem",
+    }}
+    >
 
+  <Link to="/invoices">Invoices</Link> {" "}
+  <Link to="/expenses">Expenses</Link>
+  </nav>
   );
 }
 
-
-6
+export default App

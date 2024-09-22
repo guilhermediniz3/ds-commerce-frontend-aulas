@@ -1,9 +1,8 @@
 import './styless.css'
-import ButtonInverse from "../../components/ButtonInverse";
-import ButtonPrimary from "../../components/ButtonPrimary";
-import HeaderCliente from "../../components/HeaderClient";
-import ProductDetailsCard from "../../components/ProductDetailsCard";
-import { ProductDTO } from '../../models/product';
+import ButtonInverse from "../../../components/ButtonInverse";
+import ButtonPrimary from "../../../components/ButtonPrimary";
+import ProductDetailsCard from "../../../components/ProductDetailsCard";
+import { ProductDTO } from '../../../models/product';
  
 // `product` é uma variável que armazena um objeto conforme a interface `ProductDTO`.
 // A interface `ProductDTO` define a estrutura esperada dos dados, mas não é uma classe e não pode ser instanciada.
@@ -36,8 +35,8 @@ const product: ProductDTO = {
 }
 export default function ProductDetails() {
   return (
-    <>
-      <HeaderCliente />
+   
+
       <main>
         <section id="product-details-section" className="dsc-container">
           <ProductDetailsCard product={product} />
@@ -48,7 +47,7 @@ export default function ProductDetails() {
           </div>
         </section>
       </main>
-    </>
+   
 
   );
 }

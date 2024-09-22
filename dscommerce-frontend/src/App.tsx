@@ -1,6 +1,10 @@
 
 
-import { Link } from "react-router-dom";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Catalog from "./routes/ClientHome/Catalog";
+import ProductDetails from "./routes/ClientHome/ProductDetails";
+import ClienteHome from "./routes/ClientHome";
 
 
 
@@ -8,18 +12,22 @@ import { Link } from "react-router-dom";
 
 
 
- function App() {
+function App() {
   return (
-  <nav
-    style={{
-      borderBottom:"solid 1px",
-      paddingBottom: "1rem",
-    }}
-    >
 
-  <Link to="/invoices">Invoices</Link> {" "}
-  <Link to="/expenses">Expenses</Link>
-  </nav>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ClienteHome />}>
+        <Route index element={<Catalog/>}/>
+        <Route path="catalog" element={<Catalog/>}/>
+        <Route path="product-details" element={<ProductDetails/>}/>
+        </Route>
+      </Routes>
+
+
+    </BrowserRouter>
+
+
   );
 }
 

@@ -3,7 +3,7 @@ import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
 import ProductDetailsCard from "../../../components/ProductDetailsCard";
 import * as productService from '../../../services/product-service';
-import {useParams} from 'react-router-dom'; 
+import {useNavigate, useParams} from 'react-router-dom'; 
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { ProductDTO } from '../../../models/product';
@@ -17,6 +17,7 @@ import { ProductDTO } from '../../../models/product';
 
 
 export default function ProductDetails() {
+  const navigate = useNavigate();
   const params = useParams();
   const[product,setProduct]= useState<ProductDTO>();
 
@@ -28,8 +29,9 @@ export default function ProductDetails() {
      
       setProduct(response.data);
     })
-   .catch(error=>{
-    console.log(error.response.data)
+
+    .catch(()=>{
+   navigate("/")
    });
     
        
@@ -42,10 +44,9 @@ export default function ProductDetails() {
 
          <main>
         <section id="product-details-section" className="dsc-container">
-         {/* O uso de product &&  é uma forma de garantir que o componente ProductDetailsCard só será renderizado se product não for undefined (ou null, ou qualquer valor false). Essa abordagem é semelhante ao conceito de "Optional" no Java, onde você verifica se um valor está presente antes de usá-lo. o && foi substituido pelo ? if ternario */}
-          { product 
-          ? <ProductDetailsCard product={product} />
-          : <h2>Codigo invalido</h2>
+         {/* O uso de product &&  é uma forma de garantir que o componente ProductDetailsCard só será renderizado se product não for undefined (ou null, ou qualquer valor false). Essa abordagem é semelhante ao conceito de "Optional" no Java, onde você verifica se um valor está presente antes de usá-lo. */}
+          { product &&
+          <ProductDetailsCard product={product} />
           }
           <div className="dsc-btn-page-container">
           <ButtonPrimary text="Comprar"/>
